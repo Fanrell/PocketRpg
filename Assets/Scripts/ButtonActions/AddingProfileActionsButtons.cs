@@ -15,6 +15,7 @@ public class AddingProfileActionsButtons : MonoBehaviour
         {
             profileListDrop.captionText.text = profileListDrop.options[0].text;
         }
+        profileName.text = "";
         addingCanvas.enabled = false;
     }
 }
