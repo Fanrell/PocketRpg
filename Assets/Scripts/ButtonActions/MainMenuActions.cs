@@ -28,17 +28,10 @@ public class MainMenuActions : MonoBehaviour
 
     public void DeleteProfile()
     {
-        int profileToDelete = profileDrop.value;
-        profileDrop.options.Remove(profileDrop.options[profileToDelete]);
-        switch(profileDrop.options.Count)
-        {
-            case 0:
-                profileDrop.captionText.text = "<<Create Profile>>";
-                break;
-            default:
-                profileDrop.value = profileDrop.options.Count - 1;
-                break;
-        }
+        int toDelete = profileDrop.value;
+
+        Directory.Delete(ProfileFilePath._profilePath + profileDrop.options[toDelete].text);
+        SceneManager.LoadScene(1);
     }
 
     public void GoToProfiles()
@@ -51,26 +44,23 @@ public class MainMenuActions : MonoBehaviour
         SceneManager.LoadScene(2);
     }
 
-    private void WriteListToFile(List<Dropdown.OptionData> list)
+    private void CreateProfileDirectory(List<Dropdown.OptionData> list)
     {
-        using (StreamWriter writer = new StreamWriter(ProfileFilePath._profilePath, false))
+       foreach(var item in list)
         {
-
-            foreach (var item in list)
+            if(!Directory.Exists(ProfileFilePath._profilePath+item.text))
             {
-                writer.WriteLine(item.text);
-                Debug.Log(item.text);
-
+                Directory.CreateDirectory(ProfileFilePath._profilePath + item.text);
             }
-            writer.Close();
         }
     }
+
 
     public void ConfirmProfileSelection()
     {
         Debug.Log(File.Exists(ProfileFilePath._profilePath));
         ProfileStatic.ProfileName = profileDrop.options[profileDrop.value].text;
-        WriteListToFile(profileDrop.options);
+        CreateProfileDirectory(profileDrop.options);
         SceneManager.LoadScene(0);
     }
 }
