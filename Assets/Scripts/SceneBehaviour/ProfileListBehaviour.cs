@@ -11,12 +11,15 @@ public class ProfileListBehaviour : MonoBehaviour
     void Start()
     {
         string tmp = "";
-        //File.Delete(ProfileFilePath.ProfilePath + "profile.prof");
-        using(StreamReader reader = new StreamReader(ProfileFilePath.ProfilePath + "profile.prof"))
+        Debug.Log(ProfileFilePath._profilePath);
+        if (File.Exists(ProfileFilePath._profilePath))
         {
-            while(!reader.EndOfStream)
+            using (StreamReader reader = new StreamReader(ProfileFilePath._profilePath))
             {
-                dropProfileList.options.Add(new Dropdown.OptionData { text = reader.ReadLine() });
+                while (!reader.EndOfStream)
+                {
+                    dropProfileList.options.Add(new Dropdown.OptionData { text = reader.ReadLine() });
+                }
             }
         }
     }

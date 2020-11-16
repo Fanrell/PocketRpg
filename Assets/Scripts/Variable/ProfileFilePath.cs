@@ -1,6 +1,6 @@
 ﻿
 public static class ProfileFilePath
 {
-    private static readonly string _profilePath = "/Resource/Profile";
-    public static string ProfilePath{ get; }
-}
+    public static string _profilePath = "Assets/Resource/Profile/profile.prof";
+/*    public static string ProfilePath{ get; }
+*/}

@@ -8,14 +8,33 @@ public class AddingProfileActionsButtons : MonoBehaviour
     public Dropdown profileListDrop;
     public InputField profileName;
     public Canvas addingCanvas;
+    public Text errorText;
     public void AddProfile()
     {
-            profileListDrop.options.Add(new Dropdown.OptionData { text = profileName.text });
-        if(profileListDrop.options.Count == 1)
+        Dropdown.OptionData tmp = new Dropdown.OptionData { text = profileName.text };
+        bool conflict = false;
+        foreach(var item in profileListDrop.options)
         {
-            profileListDrop.captionText.text = profileListDrop.options[0].text;
+            if(item.text == tmp.text)
+            {
+                conflict = true;
+                break;
+            }
         }
-        profileName.text = "";
-        addingCanvas.enabled = false;
+
+        if (!conflict)
+        {
+            profileListDrop.options.Add(new Dropdown.OptionData { text = profileName.text });
+            if (profileListDrop.options.Count == 1)
+            {
+                profileListDrop.captionText.text = profileListDrop.options[0].text;
+            }
+            profileName.text = "";
+            addingCanvas.enabled = false;
+        }
+        else
+        {
+            errorText.text = "This profile already exsits";
+        }
     }
 }
