@@ -62,5 +62,11 @@ public class MainMenuActions : MonoBehaviour
         ProfileStatic.ProfileName = profileDrop.options[profileDrop.value].text;
         CreateProfileDirectory(profileDrop.options);
         SceneManager.LoadScene(0);
+
+    }
+
+    public void CharcterSheetCreator()
+    {
+        SceneManager.LoadScene(3);
     }
 }
