@@ -25,7 +25,7 @@ class Skill
         }
     }
 
-    public int? level
+    public int? Level
     {
         get => level;
         set
@@ -67,16 +67,16 @@ class Skill
     public bool BuildLevel(int? level)
     {
         Level = level;
-        return Level = level;
+        return Level == level;
     }
 
-    public bool BuildSkill(string label, string discription, int? level)
+    public bool BuildSkill(string label, string discription, int? level, char flag)
     {
         bool confirmFlag = true;
         try
         {   
-            confirmFlag &= BuildLabel(label);
-            confirmFlag &= BuildDiscription(discription);
+            confirmFlag &= BuildLabel(label, flag);
+            confirmFlag &= BuildDiscription(discription, flag);
             confirmFlag &= BuildLevel(level);
             if(!confirmFlag)
             throw new System.ArgumentException("Parameters are false");

@@ -26,10 +26,10 @@ class Statistic
         get => stats.Count;
     }
 
-    public Statistic(string label, int[] stats, ref bool flag)
+    public Statistic(string label, int[] stats, ref bool flag, char eFlag)
     {
-        flag &= BuildLabel;
-        flag;
+        flag &= BuildLabel(label, eFlag);
+        flag &= BuildStat(stats);
     }
 
     public bool BuildLabel(string label, char flag)
@@ -51,7 +51,7 @@ class Statistic
     {
         foreach(int item in stats)
         {
-            this.stats.Add(x);
+            this.stats.Add(item);
         }
         return Length == stats.Length;
     }

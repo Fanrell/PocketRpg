@@ -1,10 +1,9 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
 class CharacterSheet
 {
-    private LinkedList<Link<Statistic>> stats = new LinkedList<Link<Statistic>>();
+    private LinkedList<List<Statistic>> stats = new LinkedList<List<Statistic>>();
     private List<Skill> skills = new List<Skill>();
     private List<Ability> abilities = new List<Ability>();
 
@@ -43,7 +42,7 @@ class CharacterSheet
             isEmpty &= this.stats.Count == 0;
             isEmpty &= this.skills.Count == 0;
             isEmpty &= this.abilities.Count == 0;
-            return ieEmpty;
+            return isEmpty;
         }
     }
 }
