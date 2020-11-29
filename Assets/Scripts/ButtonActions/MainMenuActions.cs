@@ -30,7 +30,7 @@ public class MainMenuActions : MonoBehaviour
     {
         int toDelete = profileDrop.value;
 
-        Directory.Delete(ProfileFilePath._profilePath + profileDrop.options[toDelete].text);
+        Directory.Delete(Paths._profilePath + profileDrop.options[toDelete].text);
         SceneManager.LoadScene(1);
     }
 
@@ -48,9 +48,9 @@ public class MainMenuActions : MonoBehaviour
     {
        foreach(var item in list)
         {
-            if(!Directory.Exists(ProfileFilePath._profilePath+item.text))
+            if(!Directory.Exists(Paths._profilePath+item.text))
             {
-                Directory.CreateDirectory(ProfileFilePath._profilePath + item.text);
+                Directory.CreateDirectory(Paths._profilePath + item.text);
             }
         }
     }
@@ -58,7 +58,7 @@ public class MainMenuActions : MonoBehaviour
 
     public void ConfirmProfileSelection()
     {
-        Debug.Log(File.Exists(ProfileFilePath._profilePath));
+        Debug.Log(File.Exists(Paths._profilePath));
         ProfileStatic.ProfileName = profileDrop.options[profileDrop.value].text;
         CreateProfileDirectory(profileDrop.options);
         SceneManager.LoadScene(0);

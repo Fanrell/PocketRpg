@@ -11,7 +11,7 @@ public class ProfileListBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        foreach(var item in Directory.GetDirectories(ProfileFilePath._profilePath))
+        foreach(var item in Directory.GetDirectories(Paths._profilePath))
         {
             string[] tmp = item.Split('/');
             dropProfileList.options.Add(new Dropdown.OptionData { text = tmp[tmp.Length - 1].ToString() });
