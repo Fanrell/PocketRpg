@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Net.Mime;
+using System;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.IO;
@@ -53,6 +55,24 @@ public class MainMenuActions : MonoBehaviour
                 Directory.CreateDirectory(Paths._profilePath + item.text);
             }
         }
+    }
+
+    public void CharInfo()
+    {
+        InputField[] fileds = FindObjectsOfType<InputField>();
+        for(int i = 0; i<fileds.Length; i++)
+        {
+            switch(fileds[i].tag.ToLower())
+            {
+                case("description"):
+                CharacterStatic.description = fileds[i].text;
+                break;
+                case("name"):
+                CharacterStatic.name = fileds[i].text;
+                break;
+            }
+        }
+        Debug.Log(CharacterStatic.name+", "+CharacterStatic.description);
     }
 
 

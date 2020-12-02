@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 class CharacterSheet
 {
+    private string name = "";
+    private string description = "";
     private LinkedList<List<Statistic>> stats = new LinkedList<List<Statistic>>();
     private List<Skill> skills = new List<Skill>();
     private List<Ability> abilities = new List<Ability>();
@@ -32,6 +34,24 @@ class CharacterSheet
         {
             this.abilities = value;
         }
+    }
+
+    public string Name 
+    {
+         get => this.name; 
+         set
+         {
+             this.name = value;
+         } 
+    }
+
+    public string Description 
+    {
+        get => this.description; 
+        set
+        {
+            this.description = value;
+        } 
     }
 
     public bool isEmpty
