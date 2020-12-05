@@ -65,14 +65,14 @@ public class MainMenuActions : MonoBehaviour
             switch(fileds[i].tag.ToLower())
             {
                 case("description"):
-                CharacterStatic.description = fileds[i].text;
+                CharacterStatic.charDescription = fileds[i].text;
                 break;
                 case("name"):
                 CharacterStatic.name = fileds[i].text;
                 break;
             }
         }
-        Debug.Log(CharacterStatic.name+", "+CharacterStatic.description);
+        SceneManager.LoadScene(4);
     }
 
 
