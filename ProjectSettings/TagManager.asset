@@ -8,6 +8,8 @@ TagManager:
   - Description
   - Name
   - Slots
+  - AddButton
+  - EditButton
   layers:
   - Default
   - TransparentFX
