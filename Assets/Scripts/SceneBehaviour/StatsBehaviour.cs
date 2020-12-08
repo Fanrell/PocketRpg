@@ -13,12 +13,8 @@ public class StatsBehaviour : MonoBehaviour
     {
         statsFields = GameObject.FindGameObjectsWithTag("input");
         label = GameObject.FindGameObjectWithTag("Name").GetComponent<InputField>();
-        Debug.Log(statsFields.Length);
         statsDrop = FindObjectOfType<Dropdown>();
-        foreach(var item in CharacterStatic.statsLable)
-        {
-            statsDrop.options.Add(new Dropdown.OptionData(item));
-        }
+        FillDrop.Fill(ref statsDrop, CharacterStatic.statsLable);
         slots = GameObject.FindGameObjectWithTag("Slots").GetComponent<InputField>();
         slots.text = 5.ToString();
         

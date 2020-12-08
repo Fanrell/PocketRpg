@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,8 +17,15 @@ public class CharacterStatsCreator : MonoBehaviour
         List<int> statsList = new List<int>();
         for(int i = 0; i<slots; i++)
         {
-            statsList.Add( 
-                System.Convert.ToInt32( statsFields[i].GetComponent<InputField>().text));
+            try
+            {
+                statsList.Add(
+                    System.Convert.ToInt32(statsFields[i].GetComponent<InputField>().text));
+            }
+            catch(Exception e)
+            {
+                return;
+            }
         }
 
         CharacterStatic.statsLable.Add(labelSlot.text);
@@ -40,8 +46,15 @@ public class CharacterStatsCreator : MonoBehaviour
         List<int> statsList = new List<int>();
         for(int i = 0; i<slots; i++)
         {
-            statsList.Add( 
-                System.Convert.ToInt32( statsFields[i].GetComponent<InputField>().text));
+            try
+            {
+                statsList.Add(
+                    System.Convert.ToInt32(statsFields[i].GetComponent<InputField>().text));
+            }
+            catch (Exception e)
+            {
+                return;
+            }
         }
 
         CharacterStatic.statsLable[statsDrop.value] = labelSlot.text;
@@ -61,10 +74,7 @@ public class CharacterStatsCreator : MonoBehaviour
         Debug.Log(CharacterStatic.statsValue.Count);
         statsDrop.ClearOptions();
 
-        foreach(var item in CharacterStatic.statsLable)
-        {
-            statsDrop.options.Add(new Dropdown.OptionData(item));
-        }
+        FillDrop.Fill(ref statsDrop, CharacterStatic.statsLable);
 
 
     }
