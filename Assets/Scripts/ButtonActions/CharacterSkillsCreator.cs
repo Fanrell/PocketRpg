@@ -63,6 +63,10 @@ public class CharacterSkillsCreator : MonoBehaviour
         skillDrop.ClearOptions();
 
         FillDrop.Fill(ref skillDrop, CharacterStatic.skillLable);
+        if (skillDrop.options.Count > 0)
+        {
+            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AbilityBehaviour>().SelectAnotherStat();
+        }
 
 
     }

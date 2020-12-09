@@ -75,6 +75,10 @@ public class CharacterStatsCreator : MonoBehaviour
         statsDrop.ClearOptions();
 
         FillDrop.Fill(ref statsDrop, CharacterStatic.statsLable);
+        if (statsDrop.options.Count > 0)
+        {
+            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AbilityBehaviour>().SelectAnotherStat();
+        }
 
 
     }
