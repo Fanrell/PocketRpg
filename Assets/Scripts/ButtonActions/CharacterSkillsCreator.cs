@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CharacterSkillsCreator : MonoBehaviour
@@ -60,14 +61,16 @@ public class CharacterSkillsCreator : MonoBehaviour
         ListDeleter.DeleteFromList(CharacterStatic.skillLable, selected);
         ListDeleter.DeleteFromList(CharacterStatic.skillValue, selected);
         ListDeleter.DeleteFromList(CharacterStatic.skillDescription, selected);
-        skillDrop.ClearOptions();
 
-        FillDrop.Fill(ref skillDrop, CharacterStatic.skillLable);
-        if (skillDrop.options.Count > 0)
-        {
-            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AbilityBehaviour>().SelectAnotherStat();
-        }
+        DeleteDrop.Delete(ref skillDrop, CharacterStatic.skillLable, new InputField[] { skillLabel, skillLevel, skillDescription });
 
+
+
+    }
+
+    public void NextSceene()
+    {
+        SceneManager.LoadScene(6);
 
     }
 }

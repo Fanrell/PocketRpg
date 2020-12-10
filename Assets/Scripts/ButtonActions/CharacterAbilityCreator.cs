@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CharacterAbilityCreator : MonoBehaviour
@@ -60,13 +61,12 @@ public class CharacterAbilityCreator : MonoBehaviour
         ListDeleter.DeleteFromList(CharacterStatic.abilityLable, selected);
         ListDeleter.DeleteFromList(CharacterStatic.abilityValue, selected);
         ListDeleter.DeleteFromList(CharacterStatic.abilityDescription, selected);
-        abilityDrop.ClearOptions();
+        DeleteDrop.Delete(ref abilityDrop, CharacterStatic.abilityLable, new InputField[] { abilityLabel, abilityDescription }, abilityLevel);
 
-        FillDrop.Fill(ref abilityDrop, CharacterStatic.abilityLable);
-        if (abilityDrop.options.Count > 0)
-        {
-            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AbilityBehaviour>().SelectAnotherStat();
-        }
+    }
 
+    public void NextScene()
+    {
+        SceneManager.LoadScene(2);
     }
 }

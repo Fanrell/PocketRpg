@@ -1,16 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CharacterStatsCreator : MonoBehaviour
 {
     private Dropdown statsDrop;
-    public void AddAction()
+    private GameObject[] statsFields;
+    private InputField labelSlot;
+
+    private void Start()
     {
         statsDrop = FindObjectOfType<Dropdown>();
-        GameObject[] statsFields = GameObject.FindGameObjectsWithTag("input");
-        InputField labelSlot = GameObject.FindGameObjectWithTag("Name").GetComponent<InputField>();
+        statsFields = GameObject.FindGameObjectsWithTag("input");
+        labelSlot  = GameObject.FindGameObjectWithTag("Name").GetComponent<InputField>();
+    }
+
+    public void AddAction()
+    {
+
         int slots = System.Convert.ToInt32(
             GameObject.FindGameObjectWithTag("Slots").
             GetComponent<InputField>().text);
@@ -67,19 +76,16 @@ public class CharacterStatsCreator : MonoBehaviour
 
     public void DeleteAction()
     {
-        Debug.Log(CharacterStatic.statsValue.Count);
         int selected = statsDrop.value;
         ListDeleter.DeleteFromList(CharacterStatic.statsLable, selected);
         ListDeleter.DeleteFromList(CharacterStatic.statsValue, selected);
-        Debug.Log(CharacterStatic.statsValue.Count);
-        statsDrop.ClearOptions();
-
-        FillDrop.Fill(ref statsDrop, CharacterStatic.statsLable);
-        if (statsDrop.options.Count > 0)
-        {
-            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AbilityBehaviour>().SelectAnotherStat();
-        }
+        DeleteDrop.Delete(ref statsDrop, CharacterStatic.statsLable, statsFields);
 
 
+    }
+
+    public void NextScene()
+    {
+        SceneManager.LoadScene(5);
     }
 }
