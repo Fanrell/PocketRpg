@@ -10,12 +10,17 @@ public class CharacterAbilityCreator : MonoBehaviour
     private InputField abilityDescription;
     private Toggle abilityLevel;
     private Dropdown abilityDrop;
-    public void AddAction()
+
+    private void Start()
     {
         abilityLabel = GameObject.FindGameObjectWithTag("Name").GetComponent<InputField>();
         abilityDescription = GameObject.FindGameObjectWithTag("Description").GetComponent<InputField>();
         abilityLevel = GameObject.FindGameObjectWithTag("input").GetComponent<Toggle>();
         abilityDrop = FindObjectOfType<Dropdown>();
+    }
+
+    public void AddAction()
+    {
 
         try
         {
@@ -28,10 +33,9 @@ public class CharacterAbilityCreator : MonoBehaviour
             return;
         }
 
-        abilityDrop.captionText.text = abilityLabel.text;
+        AddDrop.Add(ref abilityDrop, abilityLabel);
 
-        abilityDrop.options.Add(new Dropdown.OptionData(abilityLabel.text.ToString()));
-        abilityDrop.value = abilityDrop.options.Count - 1;
+
 
     }
     public void EditAction()

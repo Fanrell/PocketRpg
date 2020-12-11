@@ -10,12 +10,16 @@ public class CharacterSkillsCreator : MonoBehaviour
     private InputField skillDescription;
     private InputField skillLevel;
     private Dropdown skillDrop;
-    public void AddAction()
+    private void Start()
     {
         skillLabel = GameObject.FindGameObjectWithTag("Name").GetComponent<InputField>();
         skillDescription = GameObject.FindGameObjectWithTag("Description").GetComponent<InputField>();
         skillLevel = GameObject.FindGameObjectWithTag("input").GetComponent<InputField>();
         skillDrop = FindObjectOfType<Dropdown>();
+    }
+
+    public void AddAction()
+    {
 
         try
         {
@@ -28,10 +32,7 @@ public class CharacterSkillsCreator : MonoBehaviour
             return;
         }
 
-        skillDrop.captionText.text = skillLabel.text;
-
-        skillDrop.options.Add(new Dropdown.OptionData(skillLabel.text.ToString()));
-        skillDrop.value = skillDrop.options.Count - 1; 
+        AddDrop.Add(ref skillDrop, skillLabel);
 
     }
     public void EditAction()

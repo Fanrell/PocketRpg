@@ -39,10 +39,8 @@ public class CharacterStatsCreator : MonoBehaviour
 
         CharacterStatic.statsLable.Add(labelSlot.text);
         CharacterStatic.statsValue.Add(statsList);
-        statsDrop.options.Add(new Dropdown.OptionData(labelSlot.text));
-        statsDrop.value = statsDrop.options.Count - 1;
+        AddDrop.Add(ref statsDrop, labelSlot);
         statsDrop.captionText.text = labelSlot.text;
-        GameObject.FindGameObjectWithTag("EditButton").GetComponent<Button>().interactable = true;
 
     }
      public void EditAction()
@@ -76,12 +74,10 @@ public class CharacterStatsCreator : MonoBehaviour
 
     public void DeleteAction()
     {
-        int selected = statsDrop.value;
-        ListDeleter.DeleteFromList(CharacterStatic.statsLable, selected);
-        ListDeleter.DeleteFromList(CharacterStatic.statsValue, selected);
-        DeleteDrop.Delete(ref statsDrop, CharacterStatic.statsLable, statsFields);
-
-
+            int selected = statsDrop.value;
+            ListDeleter.DeleteFromList(CharacterStatic.statsLable, selected);
+            ListDeleter.DeleteFromList(CharacterStatic.statsValue, selected);
+            DeleteDrop.Delete(ref statsDrop, CharacterStatic.statsLable, statsFields);
     }
 
     public void NextScene()

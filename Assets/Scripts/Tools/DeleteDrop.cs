@@ -16,9 +16,11 @@ public static class DeleteDrop
         {
             foreach (var item in inputs)
             {
-                ClearFields.Clear(item);
+                item.text = null;
             }
         }
+        if (drop.options.Count == 0)
+            GameObject.FindGameObjectWithTag("EditButton").GetComponent<Button>().interactable = false;
     }
 
     public static void Delete(ref Dropdown drop, List<string> labels, InputField[] inputs, Toggle check)
