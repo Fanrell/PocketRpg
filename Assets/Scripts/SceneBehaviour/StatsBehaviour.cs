@@ -22,7 +22,15 @@ public class StatsBehaviour : MonoBehaviour
 
     public void ToggleVisibleFileds()
     {
-        int slot = System.Convert.ToInt32(slots.text);
+        int slot;
+        try
+        {
+             slot = System.Convert.ToInt32(slots.text);
+        }
+        catch(Exception e)
+        {
+            slot = 1;
+        }
         int tmpSlot = 1;
         slot = Mathf.Clamp(slot,1,5);
         foreach(var item in statsFields)
@@ -34,15 +42,6 @@ public class StatsBehaviour : MonoBehaviour
             tmpSlot++;
         }
         slots.text = slot.ToString();
-    }
-
-    private void CleanFields()
-    {
-        label.text = "";
-                foreach(var item in statsFields)
-                {
-                    item.GetComponent<InputField>().text = "";
-                }
     }
 
     public void SelectAnotherStat()
