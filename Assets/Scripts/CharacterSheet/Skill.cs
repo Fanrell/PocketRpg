@@ -1,11 +1,12 @@
 using System;
 using System.Diagnostics;
 
-class Skill
+[Serializable]
+public class Skill
 {
-    private string label;
-    private string discription = null;
-    private int? level = null;
+    public string label;
+    public string discription = null;
+    public int? level = null;
 
     public string Label
     {
@@ -34,33 +35,20 @@ class Skill
         }
     }
 
-    public bool BuildLabel(string label, char flag)
+    public bool BuildLabel(string label)
     {
-        switch(flag)
-        {
-            case 'n':
-                if(Label == null)
-                    Label = label;
-                break;
-            case 'e':
-                Label = label;
-                break;
-        }
+
+        if(Label == null)
+            Label = label;
         return Label == label;
     }
 
-    public bool BuildDiscription(string discription, char flag)
+    public bool BuildDiscription(string discription)
     {
-        switch(flag)
-        {
-            case 'n':
-                if(Discription == null)
-                    Discription = discription;
-                break;
-            case 'e':
-                Discription = discription;
-                break;
-        }
+
+        if(Discription == null)
+            Discription = discription;
+
         return Discription == discription;
     }
 
@@ -70,13 +58,13 @@ class Skill
         return Level == level;
     }
 
-    public bool BuildSkill(string label, string discription, int? level, char flag)
+    public bool BuildSkill(string label, string discription, int? level)
     {
         bool confirmFlag = true;
         try
         {   
-            confirmFlag &= BuildLabel(label, flag);
-            confirmFlag &= BuildDiscription(discription, flag);
+            confirmFlag &= BuildLabel(label);
+            confirmFlag &= BuildDiscription(discription);
             confirmFlag &= BuildLevel(level);
             if(!confirmFlag)
             throw new System.ArgumentException("Parameters are false");

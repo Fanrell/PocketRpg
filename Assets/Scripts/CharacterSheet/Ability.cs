@@ -1,11 +1,12 @@
 using System.Reflection.Emit;
 using System;
 
-class Ability
+[Serializable]
+public class Ability
 {
-    private string label;
-    private string discription;
-    private bool possess;
+    public string label;
+    public string discription;
+    public bool possess;
 
    public string Label
     {
@@ -34,33 +35,19 @@ class Ability
         }
     }
 
-    public bool BuildLabel(string label, char flag)
+    public bool BuildLabel(string label)
     {
-        switch(flag)
-        {
-            case 'n':
-                if(Label == null)
-                    Label = label;
-                break;
-            case 'e':
-                Label = label;
-                break;
-        }
+
+        if(Label == null)
+            Label = label;
+
         return Label == label;
     }
 
-    public bool BuildDiscription(string discription, char flag)
+    public bool BuildDiscription(string discription)
     {
-        switch(flag)
-        {
-            case 'n':
-                if(Discription == null)
-                    Discription = discription;
-                break;
-            case 'e':
-                Discription = discription;
-                break;
-        }
+        if(Discription == null)
+            Discription = discription;
         return Discription == discription;
     }
 
@@ -71,13 +58,13 @@ class Ability
         return Possess == possess;
     }
 
-       public bool BuildAbility(string label, string discription, bool possess, char flag)
+       public bool BuildAbility(string label, string discription, bool possess)
     {
         bool confirmFlag = true;
         try
         {   
-            confirmFlag &= BuildLabel(label, flag);
-            confirmFlag &= BuildDiscription(discription, flag);
+            confirmFlag &= BuildLabel(label);
+            confirmFlag &= BuildDiscription(discription);
             confirmFlag &= BuildPossess(possess);
             if(!confirmFlag)
                 throw new System.ArgumentException("Parameters are false");

@@ -10,6 +10,7 @@ using System.Text;
 public class MainMenuActions : MonoBehaviour
 {
     public Canvas addProfileCanvas;
+    public InputField addProfileInput;
     public Dropdown profileDrop;
 
 
@@ -75,6 +76,12 @@ public class MainMenuActions : MonoBehaviour
         SceneManager.LoadScene(4);
     }
 
+    public void AddProfileToDrop()
+    {
+        string profileNameToAdd = addProfileInput.text;
+        profileDrop.options.Add(new Dropdown.OptionData(profileNameToAdd));
+    }
+
 
     public void ConfirmProfileSelection()
     {
@@ -82,6 +89,8 @@ public class MainMenuActions : MonoBehaviour
         ProfileStatic.ProfileName = profileDrop.options[profileDrop.value].text;
         CreateProfileDirectory(profileDrop.options);
         SceneManager.LoadScene(0);
+        ProfileStatic.ProfileFolderPath = Paths._profilePath + ProfileStatic.ProfileName+"/";
+        Debug.Log(ProfileStatic.ProfileFolderPath);
 
     }
 

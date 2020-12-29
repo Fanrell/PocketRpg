@@ -10,6 +10,7 @@ TagManager:
   - Slots
   - AddButton
   - EditButton
+  - Drop
   layers:
   - Default
   - TransparentFX

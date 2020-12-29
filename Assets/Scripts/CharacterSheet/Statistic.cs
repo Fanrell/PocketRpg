@@ -2,10 +2,11 @@ using System.Runtime.InteropServices.ComTypes;
 using System;
 using System.Collections.Generic;
 
-class Statistic
+[Serializable]
+public class Statistic
 {
-    private string label;
-    private List<int> stats = new List<int>();
+    public string label;
+    public List<int> stats = new List<int>();
 
     public string Label 
     { 
@@ -26,24 +27,17 @@ class Statistic
         get => stats.Count;
     }
 
-    public Statistic(string label, int[] stats, ref bool flag, char eFlag)
+    public Statistic(string label, int[] stats)
     {
-        flag &= BuildLabel(label, eFlag);
+        bool flag = true;
+        flag &= BuildLabel(label);
         flag &= BuildStat(stats);
     }
 
-    public bool BuildLabel(string label, char flag)
+    public bool BuildLabel(string label)
     {
-        switch(flag)
-        {
-            case 'n':
-                if(Label == null)
-                    Label = label;
-                break;
-            case 'e':
-                Label = label;
-                break;
-        }
+        if(Label == null)
+            Label = label;
         return Label == label;
     }
 

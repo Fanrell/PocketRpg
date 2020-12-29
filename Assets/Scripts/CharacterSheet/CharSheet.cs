@@ -1,15 +1,16 @@
 using System;
 using System.Collections.Generic;
 
+[Serializable]
 class CharacterSheet
 {
-    private string name = "";
-    private string description = "";
-    private LinkedList<List<Statistic>> stats = new LinkedList<List<Statistic>>();
-    private List<Skill> skills = new List<Skill>();
-    private List<Ability> abilities = new List<Ability>();
+    public string name = "";
+    public string description = "";
+    public List<Statistic> stats = new List<Statistic>();
+    public List<Skill> skills = new List<Skill>();
+    public List<Ability> abilities = new List<Ability>();
 
-    public LinkedList<List<Statistic>> Stats
+    public List<Statistic> Stats
     {
         get => this.stats;
         set
@@ -65,4 +66,5 @@ class CharacterSheet
             return isEmpty;
         }
     }
+
 }
