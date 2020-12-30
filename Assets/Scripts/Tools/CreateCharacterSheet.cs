@@ -39,10 +39,8 @@ public class CreateCharacterSheet : MonoBehaviour
             character.Skills.Add(skillToAdd);
         }
 
-        //using (StreamWriter file = File.CreateText(ProfileStatic.ProfileFolderPath + "\\" + ProfileStatic.ProfileName + "\\" + character.Name + ".char"))
             string toSave = JsonUtility.ToJson(character);
-        Debug.Log(toSave);
-        File.WriteAllText(ProfileStatic.ProfileFolderPath + character.Name + ".dat", toSave);
+        File.WriteAllText(ProfileStatic.ProfileFolderPath + character.Name + ".dat", Crypter.Crypting(toSave));
 
     }
 }
