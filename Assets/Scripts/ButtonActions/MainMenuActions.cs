@@ -33,7 +33,7 @@ public class MainMenuActions : MonoBehaviour
     {
         int toDelete = profileDrop.value;
 
-        Directory.Delete(Paths._profilePath + profileDrop.options[toDelete].text);
+        Directory.Delete(Paths._profilePath + profileDrop.options[toDelete].text, recursive: true);
         SceneManager.LoadScene(1);
     }
 
@@ -45,6 +45,11 @@ public class MainMenuActions : MonoBehaviour
     public void GoToCharacterSheetProfile()
     {
         SceneManager.LoadScene(2);
+    }
+
+    public void DeleteCharacterSheet()
+    {
+        DeleteDrop.Delete(ref profileDrop);
     }
 
     private void CreateProfileDirectory(List<Dropdown.OptionData> list)
@@ -90,7 +95,6 @@ public class MainMenuActions : MonoBehaviour
         CreateProfileDirectory(profileDrop.options);
         SceneManager.LoadScene(0);
         ProfileStatic.ProfileFolderPath = Paths._profilePath + ProfileStatic.ProfileName+"/";
-        Debug.Log(ProfileStatic.ProfileFolderPath);
 
     }
 

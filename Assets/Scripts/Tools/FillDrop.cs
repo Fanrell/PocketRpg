@@ -24,12 +24,15 @@ public static class FillDrop
     {
         DirectoryInfo directory = new DirectoryInfo(profilePath);
         FileInfo[] sheets = directory.GetFiles("*.dat");
-        foreach(FileInfo sheet in sheets)
+        if (sheets.Length > 0)
         {
-            string sheetName = sheet.Name.Split('.')[0];
-            drop.options.Add(new Dropdown.OptionData(sheetName));
-        }
+            foreach (FileInfo sheet in sheets)
+            {
+                string sheetName = sheet.Name.Split('.')[0];
+                drop.options.Add(new Dropdown.OptionData(sheetName));
+            }
 
-        drop.captionText.text = drop.options[0].text;
+            drop.captionText.text = drop.options[0].text;
+        }
     }
 }

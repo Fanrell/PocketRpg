@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System.IO;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -37,5 +38,14 @@ public static class DeleteDrop
             tmp.Add(item.GetComponent<InputField>());
         }
         Delete(ref drop, labels, tmp.ToArray());
+    }
+
+    public static void Delete(ref Dropdown drop)
+    {
+        int value = drop.value;
+        File.Delete(ProfileStatic.ProfileFolderPath + "/" + drop.options[value].text + ".dat");
+
+        drop.ClearOptions();
+        FillDrop.Fill(ref drop, ProfileStatic.ProfileFolderPath);
     }
 }

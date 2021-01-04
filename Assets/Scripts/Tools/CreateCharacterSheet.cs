@@ -41,6 +41,7 @@ public class CreateCharacterSheet : MonoBehaviour
 
             string toSave = JsonUtility.ToJson(character);
         File.WriteAllText(ProfileStatic.ProfileFolderPath + character.Name + ".dat", Crypter.Crypting(toSave));
+        File.Delete(ProfileStatic.ProfileFolderPath + character.Name + ".dat.meta");
 
     }
 }
