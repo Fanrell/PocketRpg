@@ -13,7 +13,11 @@ public class MainMenuActions : MonoBehaviour
     public InputField addProfileInput;
     public Dropdown profileDrop;
 
+    public void Test()
+    {
+        CharacterSheet test;
 
+    }
     public void Close()
     {
         Application.Quit();
