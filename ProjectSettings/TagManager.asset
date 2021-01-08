@@ -11,6 +11,9 @@ TagManager:
   - AddButton
   - EditButton
   - Drop
+  - Stats
+  - Ability
+  - Skills
   layers:
   - Default
   - TransparentFX

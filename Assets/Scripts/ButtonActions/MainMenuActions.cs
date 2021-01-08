@@ -106,4 +106,18 @@ public class MainMenuActions : MonoBehaviour
     {
         SceneManager.LoadScene(3);
     }
+
+    public void ShowCharacterInfo()
+    {
+        CharacterSheet tmpChar;
+        string charString;
+        int index = profileDrop.value;
+        charString = File.ReadAllText(ProfileStatic.ProfileFolderPath + profileDrop.options[index].text + ".dat");
+        charString = Decrypter.Decrypting(charString);
+        tmpChar = JsonUtility.FromJson<CharacterSheet>(charString);
+
+        tmpChar.CharToStatic();
+
+        SceneManager.LoadScene(7);
+    }
 }

@@ -6,7 +6,7 @@ public class Skill
 {
     public string label;
     public string discription = null;
-    public int? level = null;
+    public int level = 0;
 
     public string Label
     {
@@ -26,7 +26,7 @@ public class Skill
         }
     }
 
-    public int? Level
+    public int Level
     {
         get => level;
         set
@@ -52,13 +52,13 @@ public class Skill
         return Discription == discription;
     }
 
-    public bool BuildLevel(int? level)
+    public bool BuildLevel(int level)
     {
         Level = level;
         return Level == level;
     }
 
-    public bool BuildSkill(string label, string discription, int? level)
+    public bool BuildSkill(string label, string discription, int level)
     {
         bool confirmFlag = true;
         try

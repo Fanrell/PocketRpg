@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 [Serializable]
 class CharacterSheet
@@ -65,6 +66,14 @@ class CharacterSheet
             isEmpty &= this.abilities.Count == 0;
             return isEmpty;
         }
+    }
+
+    public void CharToStatic()
+    {
+        FillList.FillSkill(Skills);
+        FillList.FillAblity(Abilities);
+        FillList.FillStats(stats);
+        
     }
 
 }

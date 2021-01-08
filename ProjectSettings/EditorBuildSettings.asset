@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CharacterSheetCreatorAbilites.unity
     guid: d30b8b220faaba84da17e5d795fa49fd
+  - enabled: 1
+    path: Assets/Scenes/CharacterSheetLook.unity
+    guid: 9c3260e4cd5989d459b9037ad221e0f2
   m_configObjects: {}
