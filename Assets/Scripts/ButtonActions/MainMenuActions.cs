@@ -116,8 +116,10 @@ public class MainMenuActions : MonoBehaviour
         charString = Decrypter.Decrypting(charString);
         tmpChar = JsonUtility.FromJson<CharacterSheet>(charString);
 
+        Debug.Log(tmpChar.name);
+
         tmpChar.CharToStatic();
 
-        SceneManager.LoadScene(7);
+        SceneManager.LoadScene(8);
     }
 }

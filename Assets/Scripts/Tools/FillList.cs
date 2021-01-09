@@ -32,4 +32,13 @@ public static class FillList
             CharacterStatic.statsValue.Add(item.Stats);
         }
     }
+
+    public static void FillEq(List<Eq> fromCharacter)
+    {
+        foreach (var item in fromCharacter)
+        {
+            CharacterStatic.eqLable.Add(item.Label);
+            CharacterStatic.eqDescription.Add(item.Discription);
+        }
+    }
 }

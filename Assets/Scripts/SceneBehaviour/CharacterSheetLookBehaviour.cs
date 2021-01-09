@@ -12,8 +12,7 @@ public class CharacterSheetLookBehaviour : MonoBehaviour
     {
         string charText = CharacterStatic.name + "\n";
         charText += CharacterStatic.charDescription;
-        Debug.Log(CharacterStatic.name.ToString());
-        Debug.Log(CharacterStatic.charDescription.ToString());
+
 
         string statText = "";
         for(int i = 0; i< CharacterStatic.statsLable.Count; i++)
@@ -46,9 +45,18 @@ public class CharacterSheetLookBehaviour : MonoBehaviour
 
         }
 
+        string eqText = "";
+        for (int i = 0; i < CharacterStatic.eqLable.Count; i++)
+        {
+            eqText += CharacterStatic.eqLable[i] + ": ";
+            eqText += CharacterStatic.eqDescription[i] + "\n";
+
+        }
+
         texts[0].text = charText.ToString();
-        texts[3].text = statText.ToString();
-        texts[2].text = ablText.ToString();
-        texts[1].text = skillText.ToString();
+        texts[1].text = eqText.ToString();
+        texts[2].text = statText.ToString();
+        texts[3].text = ablText.ToString();
+        texts[4].text = skillText.ToString();
     }
 }

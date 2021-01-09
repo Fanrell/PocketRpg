@@ -10,6 +10,7 @@ class CharacterSheet
     public List<Statistic> stats = new List<Statistic>();
     public List<Skill> skills = new List<Skill>();
     public List<Ability> abilities = new List<Ability>();
+    public List<Eq> equipment = new List<Eq>();
 
     public List<Statistic> Stats
     {
@@ -35,6 +36,14 @@ class CharacterSheet
         set
         {
             this.abilities = value;
+        }
+    }
+    public List<Eq> Equpment
+    {
+        get => this.equipment;
+        set
+        {
+            this.equipment = value;
         }
     }
 
@@ -73,7 +82,11 @@ class CharacterSheet
         FillList.FillSkill(Skills);
         FillList.FillAblity(Abilities);
         FillList.FillStats(stats);
-        
+        FillList.FillEq(equipment);
+        CharacterStatic.name = this.name;
+        CharacterStatic.charDescription = this.description;
+
+
     }
 
 }

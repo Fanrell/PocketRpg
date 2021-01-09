@@ -8,7 +8,6 @@ public static class Decrypter
     public static string Decrypting(string toDecrypt)
     {
         var decrypted = System.Convert.FromBase64String(toDecrypt);
-
         return System.Text.Encoding.UTF8.GetString(decrypted);
     }
 }

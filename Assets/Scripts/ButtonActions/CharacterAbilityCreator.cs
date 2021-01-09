@@ -71,8 +71,6 @@ public class CharacterAbilityCreator : MonoBehaviour
 
     public void NextScene()
     {
-        CreateCharacterSheet.Create();
-
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(7);
     }
 }

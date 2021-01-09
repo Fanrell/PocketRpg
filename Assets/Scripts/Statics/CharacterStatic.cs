@@ -11,5 +11,7 @@ public static class CharacterStatic
     public static List<int> skillValue = new List<int>();
     public static List<string> abilityLable = new List<string>();
     public static List<string> abilityDescription = new List<string>();
+    public static List<string> eqLable = new List<string>();
+    public static List<string> eqDescription = new List<string>();
     public static List<bool> abilityValue = new List<bool>();
 }

@@ -39,7 +39,15 @@ public class CreateCharacterSheet : MonoBehaviour
             character.Skills.Add(skillToAdd);
         }
 
-            string toSave = JsonUtility.ToJson(character);
+        for (int i = 0; i < CharacterStatic.eqLable.Count; i++)
+        {
+            Eq eqToAdd = new Eq();
+            eqToAdd.BuildEq(CharacterStatic.eqLable[i],
+                CharacterStatic.eqDescription[i]);
+            character.equipment.Add(eqToAdd);
+        }
+
+        string toSave = JsonUtility.ToJson(character);
         File.WriteAllText(ProfileStatic.ProfileFolderPath + character.Name + ".dat", Crypter.Crypting(toSave));
         File.Delete(ProfileStatic.ProfileFolderPath + character.Name + ".dat.meta");
 
