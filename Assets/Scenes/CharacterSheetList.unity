@@ -481,8 +481,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 299373381}
-        m_MethodName: Back
+      - m_Target: {fileID: 156084574}
+        m_MethodName: BackToMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -611,7 +611,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 299373381}
+      - m_Target: {fileID: 156084574}
         m_MethodName: CharcterSheetCreator
         m_Mode: 1
         m_Arguments:
@@ -670,6 +670,7 @@ GameObject:
   - component: {fileID: 156084573}
   - component: {fileID: 156084572}
   - component: {fileID: 156084571}
+  - component: {fileID: 156084574}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -725,6 +726,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &156084574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156084570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9566ab997f131e140a8e5a18de1e521a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterSheetList: {fileID: 16809447}
 --- !u!1 &158531074
 GameObject:
   m_ObjectHideFlags: 0
@@ -1266,9 +1280,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 466e635dd2de6a04dbb248c3804fd836, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  addProfileCanvas: {fileID: 0}
-  addProfileInput: {fileID: 0}
-  profileDrop: {fileID: 16809447}
 --- !u!1 &302158714
 GameObject:
   m_ObjectHideFlags: 0
@@ -1458,7 +1469,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 299373381}
+      - m_Target: {fileID: 156084574}
         m_MethodName: GoToProfiles
         m_Mode: 1
         m_Arguments:
@@ -2017,7 +2028,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 299373381}
+      - m_Target: {fileID: 156084574}
         m_MethodName: ShowCharacterInfo
         m_Mode: 1
         m_Arguments:
@@ -2602,7 +2613,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 299373381}
+      - m_Target: {fileID: 156084574}
         m_MethodName: DeleteCharacterSheet
         m_Mode: 1
         m_Arguments:

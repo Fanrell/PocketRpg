@@ -511,7 +511,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2103884389}
+      - m_Target: {fileID: 1643778161}
         m_MethodName: AddProfileToDrop
         m_Mode: 1
         m_Arguments:
@@ -641,8 +641,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2103884389}
-        m_MethodName: AddProfile
+      - m_Target: {fileID: 1643778161}
+        m_MethodName: ShowProfileAddForm
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1315,7 +1315,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -258, y: 46}
+  m_AnchoredPosition: {x: -258, y: 53}
   m_SizeDelta: {x: 250, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &675833969
@@ -1649,8 +1649,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2103884389}
-        m_MethodName: Back
+      - m_Target: {fileID: 1643778161}
+        m_MethodName: BackToMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1920,7 +1920,6 @@ GameObject:
   - component: {fileID: 1298494461}
   - component: {fileID: 1298494463}
   - component: {fileID: 1298494462}
-  - component: {fileID: 1298494465}
   m_Layer: 5
   m_Name: AddingCanvas
   m_TagString: Untagged
@@ -2011,18 +2010,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1298494465
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1298494460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d5d38d9e423dee4891f2647cf399d49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1332040615
 GameObject:
   m_ObjectHideFlags: 0
@@ -2335,6 +2322,7 @@ GameObject:
   - component: {fileID: 1643778160}
   - component: {fileID: 1643778159}
   - component: {fileID: 1643778158}
+  - component: {fileID: 1643778161}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -2390,6 +2378,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1643778161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643778157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d979307c34e1fc41ba765f51887832e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  addProfileCanvas: {fileID: 1298494461}
+  addProfileInput: {fileID: 505885637}
+  ErrorField: {fileID: 675833969}
+  profileDrop: {fileID: 981836369}
 --- !u!1 &1822911867
 GameObject:
   m_ObjectHideFlags: 0
@@ -2472,7 +2476,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2103884389}
+      - m_Target: {fileID: 1643778161}
         m_MethodName: ConfirmProfileSelection
         m_Mode: 1
         m_Arguments:
@@ -2859,7 +2863,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2103884389}
+      - m_Target: {fileID: 1643778161}
         m_MethodName: DeleteProfile
         m_Mode: 1
         m_Arguments:
@@ -3168,7 +3172,6 @@ GameObject:
   - component: {fileID: 2103884387}
   - component: {fileID: 2103884386}
   - component: {fileID: 2103884385}
-  - component: {fileID: 2103884389}
   m_Layer: 5
   m_Name: Menu
   m_TagString: Untagged
@@ -3261,21 +3264,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &2103884389
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2103884384}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 466e635dd2de6a04dbb248c3804fd836, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  addProfileCanvas: {fileID: 1298494461}
-  addProfileInput: {fileID: 505885637}
-  profileDrop: {fileID: 981836369}
 --- !u!1 &2143843563
 GameObject:
   m_ObjectHideFlags: 0
