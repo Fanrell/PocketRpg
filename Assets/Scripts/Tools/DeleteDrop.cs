@@ -3,9 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+/// <summary>
+/// Tools set focused on delete elements from dropdown component.
+/// </summary>
 public static class DeleteDrop
 {
+    /// <summary>
+    /// Save values from inputs fields to dropdown component.
+    /// </summary>
+    /// <param name="drop">Dropdown object.</param>
+    /// <param name="labels">List of labels where you wanna delete values.</param>
+    /// <param name="inputs">Array of InputFields to save in dropdown.</param>
     public static void Delete(ref Dropdown drop, List<string> labels, InputField[] inputs)
     {
         drop.ClearOptions();
@@ -21,7 +29,10 @@ public static class DeleteDrop
             }
         }
         if (drop.options.Count == 0)
-            GameObject.FindGameObjectWithTag("EditButton").GetComponent<Button>().interactable = false;
+            foreach (var item in GameObject.FindGameObjectsWithTag("HiddenButton"))
+            {
+                item.GetComponent<Button>().interactable = false;
+            }
     }
 
     public static void Delete(ref Dropdown drop, List<string> labels, InputField[] inputs, Toggle check)

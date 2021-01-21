@@ -1,6 +1,4 @@
-﻿using System.ComponentModel;
-using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class AbilityBehaviour : MonoBehaviour
@@ -18,7 +16,9 @@ public class AbilityBehaviour : MonoBehaviour
         FillDrop.Fill(ref abilityDrop, CharacterStatic.abilityLable);
 
     }
-
+    /// <summary>
+    /// Method for show value from selected option from dropdown.
+    /// </summary>
     public void SelectAnotherStat()
     {
         int indexSelect = abilityDrop.value;

@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+/// <summary>
+/// Set of Actions for CharacterSheetSkillCreator
+/// </summary>
 public class CharacterSkillsCreator : MonoBehaviour
 {
     private InputField skillLabel;
@@ -17,24 +19,27 @@ public class CharacterSkillsCreator : MonoBehaviour
         skillLevel = GameObject.FindGameObjectWithTag("input").GetComponent<InputField>();
         skillDrop = FindObjectOfType<Dropdown>();
     }
-
+    /// <summary>
+    /// Method for save Skill in Static class and in dropdown.
+    /// </summary>
     public void AddAction()
     {
-
         try
         {
             CharacterStatic.skillLable.Add(skillLabel.text);
             CharacterStatic.skillDescription.Add(skillDescription.text);
             CharacterStatic.skillValue.Add(Convert.ToInt32(skillLevel.text));
         }
-        catch(Exception e)
+        catch
         {
             return;
         }
-
         AddDrop.Add(ref skillDrop, skillLabel);
 
     }
+    /// <summary>
+    /// Method for edit value in Static class and in dropdown.
+    /// </summary>
     public void EditAction()
     {
         int selcestedIndex = skillDrop.value;
@@ -45,7 +50,7 @@ public class CharacterSkillsCreator : MonoBehaviour
             CharacterStatic.skillDescription[selcestedIndex] = skillDescription.text;
             CharacterStatic.skillValue[selcestedIndex] = Convert.ToInt32(skillLevel.text);
         }
-        catch(Exception e)
+        catch
         {
             return;
         }
@@ -55,7 +60,9 @@ public class CharacterSkillsCreator : MonoBehaviour
         skillDrop.captionText.text = skillLabel.text;
 
     }
-
+    /// <summary>
+    /// Delete value from Static class and dropdown.
+    /// </summary>
     public void DeleteAction()
     {
         int selected = skillDrop.value;

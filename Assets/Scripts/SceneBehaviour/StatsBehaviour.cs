@@ -19,7 +19,9 @@ public class StatsBehaviour : MonoBehaviour
         slots.text = 5.ToString();
         
     }
-
+    /// <summary>
+    /// Method to switch visible fields.
+    /// </summary>
     public void ToggleVisibleFileds()
     {
         int slot;
@@ -27,7 +29,7 @@ public class StatsBehaviour : MonoBehaviour
         {
              slot = System.Convert.ToInt32(slots.text);
         }
-        catch(Exception e)
+        catch
         {
             slot = 1;
         }
@@ -43,7 +45,9 @@ public class StatsBehaviour : MonoBehaviour
         }
         slots.text = slot.ToString();
     }
-
+    /// <summary>
+    /// Select another value from dropdown.
+    /// </summary>
     public void SelectAnotherStat()
     {
         int indexSelect = statsDrop.value;
@@ -57,7 +61,6 @@ public class StatsBehaviour : MonoBehaviour
                 statsFields[i].GetComponent<InputField>().text = "";
         }
         ToggleVisibleFileds();
-        Debug.Log(indexSelect);
     }
 
 }

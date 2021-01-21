@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+/// <summary>
+/// Set of actions in CharacterSheetStatsCreator scene (scene 4).
+/// </summary>
 public class CharacterStatsCreator : MonoBehaviour
 {
     private Dropdown statsDrop;
@@ -16,11 +18,13 @@ public class CharacterStatsCreator : MonoBehaviour
         statsFields = GameObject.FindGameObjectsWithTag("input");
         labelSlot  = GameObject.FindGameObjectWithTag("Name").GetComponent<InputField>();
     }
-
+    /// <summary>
+    /// Action for save value from inputfields to dropdown.
+    /// </summary>
     public void AddAction()
     {
 
-        int slots = System.Convert.ToInt32(
+        var slots = Convert.ToInt32(
             GameObject.FindGameObjectWithTag("Slots").
             GetComponent<InputField>().text);
         List<int> statsList = new List<int>();
@@ -29,9 +33,9 @@ public class CharacterStatsCreator : MonoBehaviour
             try
             {
                 statsList.Add(
-                    System.Convert.ToInt32(statsFields[i].GetComponent<InputField>().text));
+                    Convert.ToInt32(statsFields[i].GetComponent<InputField>().text));
             }
-            catch(Exception e)
+            catch
             {
                 return;
             }
@@ -43,6 +47,9 @@ public class CharacterStatsCreator : MonoBehaviour
         statsDrop.captionText.text = labelSlot.text;
 
     }
+    /// <summary>
+    /// Action for edit statistic value in dropdown.
+    /// </summary>
      public void EditAction()
     {
         GameObject[] statsFields = GameObject.FindGameObjectsWithTag("input");
@@ -56,9 +63,9 @@ public class CharacterStatsCreator : MonoBehaviour
             try
             {
                 statsList.Add(
-                    System.Convert.ToInt32(statsFields[i].GetComponent<InputField>().text));
+                    Convert.ToInt32(statsFields[i].GetComponent<InputField>().text));
             }
-            catch (Exception e)
+            catch
             {
                 return;
             }
@@ -71,7 +78,9 @@ public class CharacterStatsCreator : MonoBehaviour
         statsDrop.captionText.text = labelSlot.text;
 
     }
-
+    /// <summary>
+    /// Action to delete statistic values from dropdown.
+    /// </summary>
     public void DeleteAction()
     {
             int selected = statsDrop.value;

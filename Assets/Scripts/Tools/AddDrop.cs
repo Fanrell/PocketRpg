@@ -13,6 +13,9 @@ public static class AddDrop
         drop.value = drop.options.Count - 1;
 
         if (drop.options.Count > 0)
-            GameObject.FindGameObjectWithTag("EditButton").GetComponent<Button>().interactable = true;
+            foreach(var item in GameObject.FindGameObjectsWithTag("HiddenButton"))
+            {
+                item.GetComponent<Button>().interactable = true;
+            }
     }
 }

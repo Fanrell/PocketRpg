@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -15,18 +12,16 @@ public class CharacterEqCreator : MonoBehaviour
         eqLabel = GameObject.FindGameObjectWithTag("Name").GetComponent<InputField>();
         eqDescription = GameObject.FindGameObjectWithTag("Description").GetComponent<InputField>();
         eqDrop = FindObjectOfType<Dropdown>();
-        FillDrop.Fill(ref eqDrop, CharacterStatic.eqLable);
     }
 
     public void AddAction()
     {
-
         try
         {
             CharacterStatic.eqLable.Add(eqLabel.text);
             CharacterStatic.eqDescription.Add(eqDescription.text);
         }
-        catch (Exception e)
+        catch
         {
             return;
         }
@@ -43,15 +38,12 @@ public class CharacterEqCreator : MonoBehaviour
             CharacterStatic.eqLable[selcestedIndex] = eqLabel.text;
             CharacterStatic.eqDescription[selcestedIndex] = eqDescription.text;
         }
-        catch (Exception e)
+        catch
         {
             return;
         }
-
         eqDrop.options[selcestedIndex].text = eqLabel.text;
-
         eqDrop.captionText.text = eqLabel.text;
-
     }
 
     public void DeleteAction()
@@ -59,17 +51,12 @@ public class CharacterEqCreator : MonoBehaviour
         int selected = eqDrop.value;
         ListDeleter.DeleteFromList(CharacterStatic.eqLable, selected);
         ListDeleter.DeleteFromList(CharacterStatic.eqDescription, selected);
-
         DeleteDrop.Delete(ref eqDrop, CharacterStatic.eqLable, new InputField[] { eqLabel, eqDescription });
-
-
-
     }
 
     public void NextSceene()
     {
         CreateCharacterSheet.Create();
-
         SceneManager.LoadScene(2);
     }
 }

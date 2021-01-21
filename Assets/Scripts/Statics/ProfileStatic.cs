@@ -6,13 +6,26 @@
     /// <summary>
     /// Get access to ProfilePath private variable
     /// </summary>
-    public static string ProfilePath { get; private set; }
+    public static string ProfilePath { get => _profilePath;}
     /// <summary>
     /// Get access to ProfileName private variable
     /// </summary>
-    public static string ProfileName { get; set; }
+    public static string ProfileName 
+    { 
+        get => _profileName; 
+        set
+        {
+            _profileName = value;
+        }
+    }
     /// <summary>
     /// Get access to ProfileFolderPath private variable
     /// </summary>
-    public static string ProfileFolderPath { get; set; }
+    public static string ProfileFolderPath { 
+        get => _profileFolderPath; 
+        set
+        {
+            _profileFolderPath = value;
+        }
+    }
 }

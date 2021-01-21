@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -18,47 +16,46 @@ public class CharacterAbilityCreator : MonoBehaviour
         abilityLevel = GameObject.FindGameObjectWithTag("input").GetComponent<Toggle>();
         abilityDrop = FindObjectOfType<Dropdown>();
     }
-
+    /// <summary>
+    /// Action for save value in static class and dropdown.
+    /// </summary>
     public void AddAction()
     {
-
         try
         {
             CharacterStatic.abilityLable.Add(abilityLabel.text);
             CharacterStatic.abilityDescription.Add(abilityDescription.text);
             CharacterStatic.abilityValue.Add(abilityLevel.isOn);
         }
-        catch (Exception e)
+        catch
         {
             return;
         }
 
         AddDrop.Add(ref abilityDrop, abilityLabel);
-
-
-
     }
+    /// <summary>
+    /// Action for edit value in static class and dropdown.
+    /// </summary>
     public void EditAction()
     {
         int selcestedIndex = abilityDrop.value;
-
         try
         {
             CharacterStatic.abilityLable[selcestedIndex] = abilityLabel.text;
             CharacterStatic.abilityDescription[selcestedIndex] = abilityDescription.text;
             CharacterStatic.abilityValue.Add(abilityLevel.isOn);
         }
-        catch (Exception e)
+        catch
         {
             return;
         }
-
         abilityDrop.options[selcestedIndex].text = abilityLabel.text;
-
         abilityDrop.captionText.text = abilityLabel.text;
-
     }
-
+    /// <summary>
+    /// Action for delete value in static class and dropdown.
+    /// </summary>
     public void DeleteAction()
     {
         int selected = abilityDrop.value;
