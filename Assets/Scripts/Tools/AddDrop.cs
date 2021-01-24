@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -29,7 +30,7 @@ public static class AddDrop
             {
                 item.GetComponent<Button>().interactable = true;
             }
-            foreach(var item in labels)
+            foreach (var item in labels)
             {
                 drop.options.Add(new Dropdown.OptionData(item));
             }

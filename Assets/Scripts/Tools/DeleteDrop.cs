@@ -44,7 +44,7 @@ public static class DeleteDrop
     public static void Delete(ref Dropdown drop, List<string> labels, GameObject[] inputs)
     {
         List<InputField> tmp = new List<InputField>();
-        foreach(var item in inputs)
+        foreach (var item in inputs)
         {
             tmp.Add(item.GetComponent<InputField>());
         }

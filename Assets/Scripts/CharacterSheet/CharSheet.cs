@@ -5,14 +5,13 @@ using UnityEngine;
 [Serializable]
 class CharacterSheet
 {
-    public string name = "";
-    public string description = "";
-    public List<Statistic> stats = new List<Statistic>();
-    public List<Skill> skills = new List<Skill>();
-    public List<Ability> abilities = new List<Ability>();
-    public List<Eq> equipment = new List<Eq>();
+    public CharInfoModel characterInfo = new CharInfoModel();
+    public List<StatisticModel> stats = new List<StatisticModel>();
+    public List<SkillModel> skills = new List<SkillModel>();
+    public List<AbilityModel> abilities = new List<AbilityModel>();
+    public List<ItemModel> inventory= new List<ItemModel>();
 
-    public List<Statistic> Stats
+    public List<StatisticModel> Stats
     {
         get => this.stats;
         set
@@ -21,7 +20,7 @@ class CharacterSheet
         }
     }
 
-    public List<Skill> Skills
+    public List<SkillModel> Skills
     {
         get => skills;
         set
@@ -30,7 +29,7 @@ class CharacterSheet
         }
     }
 
-    public List<Ability> Abilities
+    public List<AbilityModel> Abilities
     {
         get => this.abilities;
         set
@@ -38,42 +37,21 @@ class CharacterSheet
             this.abilities = value;
         }
     }
-    public List<Eq> Equpment
+    public List<ItemModel> Inventory
     {
-        get => this.equipment;
+        get => this.inventory;
         set
         {
-            this.equipment = value;
+            this.inventory = value;
         }
     }
 
-    public string Name 
+    public CharInfoModel CharacterInfo
     {
-         get => this.name; 
-         set
-         {
-             this.name = value;
-         } 
-    }
-
-    public string Description 
-    {
-        get => this.description; 
+        get => characterInfo;
         set
         {
-            this.description = value;
-        } 
-    }
-
-    public bool isEmpty
-    {
-        get
-        {
-            bool isEmpty = true;
-            isEmpty &= this.stats.Count == 0;
-            isEmpty &= this.skills.Count == 0;
-            isEmpty &= this.abilities.Count == 0;
-            return isEmpty;
+            characterInfo = value;
         }
     }
 
@@ -82,11 +60,9 @@ class CharacterSheet
         FillList.FillSkill(Skills);
         FillList.FillAblity(Abilities);
         FillList.FillStats(stats);
-        FillList.FillEq(equipment);
-        CharacterStatic.name = this.name;
-        CharacterStatic.charDescription = this.description;
-
-
+        FillList.FillEq(inventory);
+        CharacterStatic.name = characterInfo.CharacterName;
+        CharacterStatic.charDescription = characterInfo.CharacterDescription;
     }
 
 }

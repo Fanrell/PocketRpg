@@ -12,10 +12,10 @@ public class CharacterSheetCreatorCharDescriptionActions : MonoBehaviour
             switch (fileds[i].tag.ToLower())
             {
                 case ("description"):
-                    CharacterStatic.charDescription = fileds[i].text;
+                    CharacterStatic.name = fileds[i].text;
                     break;
                 case ("name"):
-                    CharacterStatic.name = fileds[i].text;
+                    CharacterStatic.charDescription = fileds[i].text;
                     break;
             }
         }

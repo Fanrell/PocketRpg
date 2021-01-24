@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using UnityEngine;
+using UnityEngine; 
 
 public class CreateCharacterSheet : MonoBehaviour
 {
@@ -11,45 +11,55 @@ public class CreateCharacterSheet : MonoBehaviour
 
         CharacterSheet character = new CharacterSheet();
 
-        character.Name = CharacterStatic.name;
-        character.Description = CharacterStatic.charDescription;
+        character.characterInfo = CharInfoBuilder.Build
+            (
+            CharacterStatic.name, CharacterStatic.charDescription
+            );
 
         for(int i = 0; i<CharacterStatic.statsLable.Count; i++)
         {
-            Statistic statisticToAdd = new Statistic(CharacterStatic.statsLable[i], 
-                CharacterStatic.statsValue[i].ToArray());
-            character.Stats.Add(statisticToAdd);
+            character.Stats.Add
+                (
+                StatisticBuilder.Build(CharacterStatic.statsLable[i],
+                CharacterStatic.statsValue[i])
+                );
         }
 
         for (int i = 0; i < CharacterStatic.abilityLable.Count; i++)
         {
-            Ability abilityToAdd = new Ability();
-            abilityToAdd.BuildAbility(CharacterStatic.abilityLable[i],
+            
+            character.Abilities.Add(AbilityBuilder.Build
+                (
+                CharacterStatic.abilityLable[i],
                 CharacterStatic.abilityDescription[i],
-                CharacterStatic.abilityValue[i]);
-            character.Abilities.Add(abilityToAdd);
+                CharacterStatic.abilityValue[i])
+                );
         }
 
         for (int i = 0; i < CharacterStatic.skillLable.Count; i++)
         {
-            Skill skillToAdd = new Skill();
-            skillToAdd.BuildSkill(CharacterStatic.skillLable[i],
+            character.Skills.Add(SkillBuilder.Build
+                (
+                CharacterStatic.skillLable[i],
                 CharacterStatic.skillDescription[i],
-                CharacterStatic.skillValue[i]);
-            character.Skills.Add(skillToAdd);
+                CharacterStatic.skillValue[i])
+                );
         }
 
         for (int i = 0; i < CharacterStatic.eqLable.Count; i++)
         {
-            Eq eqToAdd = new Eq();
-            eqToAdd.BuildEq(CharacterStatic.eqLable[i],
-                CharacterStatic.eqDescription[i]);
-            character.equipment.Add(eqToAdd);
+
+            character.Inventory.Add(ItemBuilder.Build
+                (
+                CharacterStatic.eqLable[i],
+                CharacterStatic.eqDescription[i])
+                );
         }
 
         string toSave = JsonUtility.ToJson(character);
-        File.WriteAllText(ProfileStatic.ProfileFolderPath + character.Name + ".dat", Crypter.Crypting(toSave));
-        File.Delete(ProfileStatic.ProfileFolderPath + character.Name + ".dat.meta");
+        Debug.Log(toSave);
+        File.WriteAllText(ProfileStatic.ProfileFolderPath + character.characterInfo.CharacterName + ".dat", Crypter.Crypting(toSave));
+        File.Delete(ProfileStatic.ProfileFolderPath + character.characterInfo.CharacterName + ".dat.meta");
 
     }
 }

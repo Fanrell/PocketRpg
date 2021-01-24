@@ -16,7 +16,7 @@ public class CharacterStatsCreator : MonoBehaviour
     {
         statsDrop = FindObjectOfType<Dropdown>();
         statsFields = GameObject.FindGameObjectsWithTag("input");
-        labelSlot  = GameObject.FindGameObjectWithTag("Name").GetComponent<InputField>();
+        labelSlot = GameObject.FindGameObjectWithTag("Name").GetComponent<InputField>();
     }
     /// <summary>
     /// Action for save value from inputfields to dropdown.
@@ -28,7 +28,7 @@ public class CharacterStatsCreator : MonoBehaviour
             GameObject.FindGameObjectWithTag("Slots").
             GetComponent<InputField>().text);
         List<int> statsList = new List<int>();
-        for(int i = 0; i<slots; i++)
+        for (int i = 0; i < slots; i++)
         {
             try
             {
@@ -50,7 +50,7 @@ public class CharacterStatsCreator : MonoBehaviour
     /// <summary>
     /// Action for edit statistic value in dropdown.
     /// </summary>
-     public void EditAction()
+    public void EditAction()
     {
         GameObject[] statsFields = GameObject.FindGameObjectsWithTag("input");
         InputField labelSlot = GameObject.FindGameObjectWithTag("Name").GetComponent<InputField>();
@@ -58,7 +58,7 @@ public class CharacterStatsCreator : MonoBehaviour
             GameObject.FindGameObjectWithTag("Slots").
             GetComponent<InputField>().text);
         List<int> statsList = new List<int>();
-        for(int i = 0; i<slots; i++)
+        for (int i = 0; i < slots; i++)
         {
             try
             {
@@ -83,10 +83,10 @@ public class CharacterStatsCreator : MonoBehaviour
     /// </summary>
     public void DeleteAction()
     {
-            int selected = statsDrop.value;
-            ListDeleter.DeleteFromList(CharacterStatic.statsLable, selected);
-            ListDeleter.DeleteFromList(CharacterStatic.statsValue, selected);
-            DeleteDrop.Delete(ref statsDrop, CharacterStatic.statsLable, statsFields);
+        int selected = statsDrop.value;
+        ListDeleter.DeleteFromList(CharacterStatic.statsLable, selected);
+        ListDeleter.DeleteFromList(CharacterStatic.statsValue, selected);
+        DeleteDrop.Delete(ref statsDrop, CharacterStatic.statsLable, statsFields);
     }
 
     public void NextScene()
