@@ -57,6 +57,6 @@ public class CharacterEqCreator : MonoBehaviour
     public void NextSceene()
     {
         CreateCharacterSheet.Create();
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(SceneSwitchStatic.SceneToSwitch);
     }
 }

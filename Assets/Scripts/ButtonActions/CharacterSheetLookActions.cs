@@ -19,6 +19,7 @@ public class CharacterSheetLookActions : MonoBehaviour
     /// </summary>
     public void EditCharSheet()
     {
+        SceneSwitchStatic.SceneToSwitch = 8;
         SceneManager.LoadScene(3);
     }
 }

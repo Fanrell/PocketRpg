@@ -15,8 +15,7 @@ public class EqBehaviour : MonoBehaviour
         FillDrop.Fill(ref eqDrop, CharacterStatic.eqLable);
     }
 
-    // Update is called once per frame
-    public void SelectAnotherStat()
+    public void SelectAnother()
     {
         int indexSelect = eqDrop.value;
         eqLabel.text = CharacterStatic.eqLable[indexSelect];

@@ -11,10 +11,7 @@ public static class FillDrop
 
     public static void Fill(ref Dropdown drop, List<string> labels)
     {
-        foreach (var item in labels)
-        {
-            drop.options.Add(new Dropdown.OptionData(item));
-        }
+        AddDrop.Add(ref drop, labels);
 
         if (drop.options.Count > 0)
         {

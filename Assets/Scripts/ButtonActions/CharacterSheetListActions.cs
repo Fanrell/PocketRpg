@@ -39,6 +39,7 @@ public class CharacterSheetListActions : MonoBehaviour
     /// </summary>
     public void CharcterSheetCreator()
     {
+        SceneSwitchStatic.SceneToSwitch = 2;
         SceneManager.LoadScene(3);
     }
     /// <summary>
