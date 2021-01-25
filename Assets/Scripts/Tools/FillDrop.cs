@@ -51,6 +51,8 @@ public static class FillDrop
                 drop.options.Add(new Dropdown.OptionData(folders.Name));
             }
             drop.captionText.text = drop.options[0].text;
+            GameObject.FindGameObjectWithTag("HiddenButton").GetComponent<Button>().interactable = true;
         }
+
     }
 }

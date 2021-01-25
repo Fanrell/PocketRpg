@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.IO;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -12,13 +13,20 @@ public class CharacterSheetCreatorCharDescriptionActions : MonoBehaviour
             switch (fileds[i].tag.ToLower())
             {
                 case ("description"):
-                    CharacterStatic.name = fileds[i].text;
+                    CharacterStatic.charDescription = fileds[i].text;
                     break;
                 case ("name"):
-                    CharacterStatic.charDescription = fileds[i].text;
+                    CharacterStatic.name = fileds[i].text;
                     break;
             }
         }
-        SceneManager.LoadScene(4);
+        if(AvaiableCheck(CharacterStatic.name))
+            SceneManager.LoadScene(4);
+    }
+
+    private bool AvaiableCheck(string name)
+    {
+        bool isAviable = !File.Exists(ProfileStatic.ProfileFolderPath + "/" + name + ".dat");
+        return isAviable;
     }
 }
