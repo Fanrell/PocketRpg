@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
@@ -41,11 +42,23 @@ public class CharacterSheetListActions : MonoBehaviour
     {
         SceneSwitchStatic.SceneToSwitch = 2;
         SceneManager.LoadScene(3);
+    } 
+    public void OnlineMode()
+    {
+        CharSheetToMemory();
+        SceneManager.LoadScene(9);
     }
     /// <summary>
     /// Decrypt character sheet from file and show information on screen at CharacterSheetInfo scene (scene 8)
     /// </summary>
     public void ShowCharacterInfo()
+    {
+        CharSheetToMemory();
+
+        SceneManager.LoadScene(8);
+    }
+
+    private void CharSheetToMemory()
     {
         CharacterSheet tmpChar;
         string charString;
@@ -55,7 +68,5 @@ public class CharacterSheetListActions : MonoBehaviour
         tmpChar = JsonUtility.FromJson<CharacterSheet>(charString);
 
         tmpChar.CharToStatic();
-
-        SceneManager.LoadScene(8);
     }
 }

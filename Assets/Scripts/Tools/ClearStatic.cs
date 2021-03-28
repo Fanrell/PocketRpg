@@ -14,6 +14,8 @@ public static class ClearStatic
         CharacterStatic.skillValue = new List<int>();
         CharacterStatic.statsLable = new List<string>();
         CharacterStatic.statsValue = new List<List<int>>();
+        CharacterStatic.eqLable = new List<string>();
+        CharacterStatic.eqDescription = new List<string>();
         CharacterStatic.charDescription = "";
         CharacterStatic.name = "";
     }

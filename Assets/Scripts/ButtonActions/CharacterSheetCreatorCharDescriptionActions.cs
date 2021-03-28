@@ -20,12 +20,14 @@ public class CharacterSheetCreatorCharDescriptionActions : MonoBehaviour
                     break;
             }
         }
-        if(AvaiableCheck(CharacterStatic.name))
+       /// if(AvaiableCheck(CharacterStatic.name))
             SceneManager.LoadScene(4);
     }
 
     private bool AvaiableCheck(string name)
     {
+        // poprawić
+
         bool isAviable = !File.Exists(ProfileStatic.ProfileFolderPath + "/" + name + ".dat");
         return isAviable;
     }
